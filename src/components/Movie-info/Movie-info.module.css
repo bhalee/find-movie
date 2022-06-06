@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    border: solid 1px lightgrey;
+    border-bottom-right-radius: 5%;
+    margin: 1em;
+    padding: .5em;
+    width: 25em;
+    height: 15em;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
+.overview {
+    display: -webkit-box;
+    margin-top: 0;
+    max-width: 200px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.title {
+    margin: 0 0 .4em 0;
+}
+
+.score {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1em;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+}
+
+.categories span {
+    font-size: 0.8em;
+    font-weight: lighter;
+}
+
+.poster {
+    max-width: 10em;
+    max-height: 15em;
+}

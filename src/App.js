@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header/Header';
+import MoviesList from './components/Movies-list/Movies-list';
+import { useCustomEventListener } from 'react-custom-events';
+import React, { useState } from 'react';
+import SearchBar from './components/Search-bar/Search-bar';
+import styles from './App.module.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [movies, setMovies] = useState([]);
+
+    useCustomEventListener('onResultUpdate', (newMovies) => setMovies(newMovies));
+
+    return (
+        <div>
+            <header>
+                <Header />
+            </header>
+            <div className={styles.container}>
+                <div className={styles.search}>
+                    <SearchBar />
+                </div>
+                <div className={styles['movies-list']}>
+                    <MoviesList movies={movies} />
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
